@@ -1,0 +1,8 @@
+[user]
+	name = Xin Huang
+	email = 
+[alias]
+	pushbranch = push -u origin
+	listalias = config --get-regexp alias
+	addproject = remote add origin
+	logg = log --pretty=format:\"Date: %ci %nAuthor: %aN %nCommit:%Cred %h %n    %Cgreen %s %n\"

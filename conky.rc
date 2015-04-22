@@ -1,0 +1,87 @@
+# conky configuration
+#
+# The list of variables has been removed from this file in favour
+# of keeping the documentation more maintainable.
+# Check http://conky.sf.net for an up-to-date-list.
+#
+# For ideas about how to modify conky, please see:
+# http://crunchbanglinux.org/forums/topic/59/my-conky-config/
+#
+# For help with conky, please see:
+# http://crunchbanglinux.org/forums/topic/2047/conky-help/
+#
+# Enjoy! 
+##############################################
+# Settings
+##############################################
+background yes
+use_xft yes
+xftfont Liberation Sans:size=9
+xftalpha 1
+update_interval 4.0
+total_run_times 0
+own_window yes
+own_window_transparent yes
+own_window_type desktop
+#own_window_argb_visual yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 200 200
+maximum_width 250
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+default_color 53CFCF
+default_shade_color 000000
+default_outline_color 828282
+alignment top_right
+gap_x 12
+gap_y 56
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale no
+text_buffer_zie 512
+##############################################
+#  Output
+##############################################
+TEXT
+S Y S T E M  I N F O ${hr 2} 
+$alignc$sysname $kernel   Uptime: $alignr$uptime
+Battery:$alignc      ${execi 60 acpi -b | awk '{print$5}'} ${alignr} (${execi 60 acpi -b | awk '{print $4}' | cut -b -3})
+Disk usage:$alignc      ${fs_used /home} / ${fs_size /home} $alignr ${fs_used_perc /home}%
+Swap usage:$alignc    ${swap /}/ ${swapmax /} $alignr ${fs_used_perc swap}%
+Processes:$alignc       $processes  ${alignr}Running: $running_processes
+
+C P U / R A M $alignr   PID   CPU  MEM
+${hr}
+CPU USAGE:$alignc      $freq MHz $alignr ${cpu cpu0}%
+${cpugraph cpu0}
+${top name 1}${alignr}${top pid 1}  ${top cpu 1}  ${top mem 1} 
+${top name 2}${alignr}${top pid 2}  ${top cpu 2}  ${top mem 2} 
+${top name 3}${alignr}${top pid 3}  ${top cpu 3}  ${top mem 3} 
+
+RAM USAGE:$alignc      $mem / $memmax $alignr $memperc%
+$membar
+${top_mem name 1}${alignr}${top_mem pid 1}  ${top_mem cpu 1}  ${top_mem mem 1} 
+${top_mem name 2}${alignr}${top_mem pid 2}  ${top_mem cpu 2}  ${top_mem mem 2} 
+${top_mem name 3}${alignr}${top_mem pid 3}  ${top_mem cpu 3}  ${top_mem mem 3}
+
+S H O R T C U T    K E Y S
+${hr}
+Alt + F2$alignr Run Dialog
+Alt + F3$alignr Alt Menu
+command + Space$alignr Main Menu
+command + Tab$alignr Client Menu
+command + t$alignr Terminal
+command + f$alignr File Manager
+command + e$alignr Editor
+command + m$alignr Media Player
+command + w$alignr Web Browser
+command + h$alignr Task Manager
+command + l$alignr Lock Screen
+command + v$alignr Volume Control
+command + x$alignr Logout
+PrtSc$alignr Screenshots
+
