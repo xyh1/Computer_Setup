@@ -13,7 +13,7 @@ alias ls='ls --color=auto'
 alias vi='vim'
 
 # Echo current user mail to console
-alias mail='cat /var/spool/mail/$USER'
+alias readmail='cat /var/spool/mail/$USER'
 
 # Read Aliases
 alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-t$
