@@ -1,0 +1,7 @@
+// Add to uBlock Origin My Filters
+
+// The following filters also break notifications & new message support. Must manually refresh page
+// Hides FB read receipts
+facebook.com/ajax/mercury/change_read_status.php$xmlhttprequest
+// Blocks FB the timestamp actualization
+https://*-edge-chat.facebook.com
